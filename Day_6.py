@@ -3,14 +3,18 @@ fishes = [1,1,3,5,3,1,1,4,1,1,5,2,4,3,1,1,3,1,1,5,5,1,3,2,5,4,1,1,5,1,4,2,1,4,2,
 lifetime = 8
 
 print('Day 0')
-print("Liczba rybek na początku: ",len(fishes))
-# 80 days = <0,80)
-#days = 80 #Zadanie 6.1
-days = 256 #Zadanie 6.2
+print("Lanternfish on the beginning: ",len(fishes))
+
+#days = 80 #Exercise 6.1
+days = 256 #Exercise 6.2
+
 numbers_counter = [fishes.count(i) for i in range(lifetime+1)]
 for day in range(days):
+	#count how many zeros actually is in the list
 	zeros = numbers_counter[0]
+	#decrease lifetime values of all fish by re-indexing current values
 	numbers_counter = numbers_counter[1:len(numbers_counter)]
 	numbers_counter.append(zeros)
+	#add amount of fish that change values from 0 to 6
 	numbers_counter[6]+=zeros
-print("Liczba rybek na koniec: ", sum(numbers_counter))
+print("Lanternfish at the end: ", sum(numbers_counter))
